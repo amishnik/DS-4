@@ -1,3 +1,7 @@
+--postgres использовал в докере, аналогично лекциям
+sudo docker-compose --project-name postgres-client -f docker-compose.yml run --rm postgres-client
+psql --host $APP_POSTGRES_HOST -U postgres
+
 --создаю таблицы в базе
 CREATE TABLE IF NOT EXISTS clients (
    client_name varchar, clientid int, gender varchar, birthdate date);
