@@ -102,8 +102,8 @@ AS SELECT clientid AS Клиент
 , comm_diff AS Успешность_коммуникаций
  FROM clients_to_comm WHERE count < avg;
 
---гружаю в csv-файл итог запроса
- \copy clients_to_communicate to '/data/clients_to_communicate.csv' DELIMITER ',' HEADER CSV;
+--выгружаю в csv-файл итог запроса
+ \copy (SELECT * FROM clients_to_communicate) to '/data/clients_to_communicate.csv' DELIMITER ',' HEADER CSV;
 
 --создаю представение в форме отчета по общему сальду операций ввода.вывода денежных средств клиентами в рзрезе возрастных групп клиентов
 CREATE OR REPLACE VIEW transaction_report
